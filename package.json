@@ -1,0 +1,28 @@
+{
+  "name": "pm2-process",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/index.js",
+    "start": "pm2 start src/index.js --name 'pm2-process'",
+    "stop": "pm2 stop pm2-process",
+    "restart": "pm2 restart pm2-process",
+    "delete": "pm2 delete pm2-process",
+    "logs": "pm2 logs pm2-process",
+    "list": "pm2 list",
+    "startup": "pm2 startup",
+    "start-all": "pm2 start all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "child-process": "^1.0.2",
+    "dotenv": "^16.4.7",
+    "google-auth-library": "^9.15.0",
+    "googleapis": "^144.0.0"
+  }
+}
