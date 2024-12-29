@@ -2,7 +2,10 @@ import { FileManager } from "./file-manager.js";
 import { FolderManager } from "./Folder-manager.js";
 import { test, createTree } from "./tree.js";
 import fs from "fs";
-import { INTERVAL } from "./consts.js";
+import {
+  LOCAL_MEMORY_TREE_UPDATE_INTERVAL,
+  JSON_METADATA_UPDATE_INTERVAL,
+} from "./consts.js";
 
 export async function createFolder(folderPath) {
   try {
@@ -24,7 +27,7 @@ export async function createFolder(folderPath) {
 export async function testFile() {
   const manager = new FileManager("test.json");
   const data = await manager.getData();
-  const instructions = [];
+  let instructions = [];
   let tree = [];
   // for the initial setup like at the start if there
   //are already any folders or files in the test folder
@@ -32,14 +35,40 @@ export async function testFile() {
   const startinstructions = createTree();
   if (startinstructions.length > 0) {
     tree = test(startinstructions);
+    console.log(JSON.stringify(tree, null, 2));
   }
 
   // update the local memory tree every minute
   // and write the instructions and tree to the output.txt file
   // for dev phase
   setInterval(async () => {
+    console.log("RUNNING LOCAL MEMORY TREE UPDATE........");
     tree = test(instructions);
-    // check if the output.txt file exists
+    if (fs.existsSync("local-memory-tree.txt")) {
+      // make it async
+      fs.appendFile(
+        "local-memory-tree.txt",
+        JSON.stringify(instructions, null, 2),
+        (err) => {
+          if (err) throw err;
+          console.log("Data appended asynchronously!");
+        }
+      );
+    } else {
+      fs.writeFile(
+        "local-memory-tree.txt",
+        JSON.stringify(instructions, null, 2),
+        (err) => {
+          if (err) throw err;
+          console.log("Data appended asynchronously!");
+        }
+      );
+    }
+    instructions = []; // empty the instructions array
+  }, LOCAL_MEMORY_TREE_UPDATE_INTERVAL);
+
+  setInterval(() => {
+    console.log("RUNNING JSON METADATA UPDATE........");
     if (fs.existsSync("output.txt")) {
       // make it async
       fs.appendFile("output.txt", JSON.stringify(tree, null, 2), (err) => {
@@ -52,31 +81,38 @@ export async function testFile() {
         console.log("Data appended asynchronously!");
       });
     }
-
-    console.log("instruction added........");
-  }, INTERVAL);
+  }, JSON_METADATA_UPDATE_INTERVAL);
   //   console.log(JSON.stringify(manager.data, null, 2));
   const watcher = await createFolder("test-folder");
+  function shouldExcludePath(path) {
+    return path.includes(".git/");
+  }
+
   watcher
     .on("add", (path) => {
-      // console.log(`File added: ${path}`);
-      instructions.push(`File added: ${path}`);
+      if (!shouldExcludePath(path)) {
+        instructions.push(`File added: ${path}`);
+      }
     })
     .on("change", (path) => {
-      // console.log(`File changed: ${path}`);
-      instructions.push(`File changed: ${path}`);
+      if (!shouldExcludePath(path)) {
+        instructions.push(`File changed: ${path}`);
+      }
     })
     .on("unlink", (path) => {
-      // console.log(`File removed: ${path}`);
-      instructions.push(`File removed: ${path}`);
+      if (!shouldExcludePath(path)) {
+        instructions.push(`File removed: ${path}`);
+      }
     })
     .on("addDir", (path) => {
-      // console.log(`Folder added: ${path}`);
-      instructions.push(`Folder added: ${path}`);
+      if (!shouldExcludePath(path)) {
+        instructions.push(`Folder added: ${path}`);
+      }
     })
     .on("unlinkDir", (path) => {
-      // console.log(`Folder removed: ${path}`);
-      instructions.push(`Folder removed: ${path}`);
+      if (!shouldExcludePath(path)) {
+        instructions.push(`Folder removed: ${path}`);
+      }
     })
     .on("error", (error) => {
       console.error(`Watcher error: ${error}`);

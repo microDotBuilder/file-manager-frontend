@@ -11,3 +11,4 @@
 - [x] every minute keep creating the local memory tree
 - [ ] update the json metadata file every 5 minutes
 - [ ] for dev phase, create a file called output.txt and write the instructions ,tree created into that file on every iteration.
+- [ ] fix the issue with when we are deleting the file or the whole folder and trying to git clone it again the github run something else

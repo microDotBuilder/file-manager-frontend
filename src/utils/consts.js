@@ -1,1 +1,3 @@
-export const INTERVAL = 60000;
+export const LOCAL_MEMORY_TREE_UPDATE_INTERVAL = 40000;
+// 5 minutes
+export const JSON_METADATA_UPDATE_INTERVAL = 300000;

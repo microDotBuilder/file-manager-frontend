@@ -70,10 +70,33 @@ function dictToArray(node) {
 export function createTree() {
   const instructions = [];
   const path = `${basePath}/test-folder`;
-  const files = fs.readdirSync(path);
-  for (const file of files) {
-    instructions.push(`File added: ${path}/${file}`);
+
+  function shouldExcludePath(path) {
+    return path.includes("file-manager-frontend/.git/");
   }
+
+  function traverseDirectory(currentPath) {
+    const entries = fs.readdirSync(currentPath, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = `${currentPath}/${entry.name}`;
+
+      // Skip if path contains .git after file-manager-frontend
+      // if (shouldExcludePath(fullPath)) {
+      //   continue;
+      // }
+
+      if (entry.isDirectory()) {
+        instructions.push(`Folder added: ${fullPath}`);
+        traverseDirectory(fullPath);
+      } else {
+        instructions.push(`File added: ${fullPath}`);
+      }
+    }
+  }
+
+  // Start the traversal from the root path
+  traverseDirectory(path);
   return instructions;
 }
 export function test(lines) {

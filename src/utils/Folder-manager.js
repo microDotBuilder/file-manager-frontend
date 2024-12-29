@@ -15,8 +15,6 @@ export class FolderManager {
     this.createFolder();
     this.watcher = chokidar.watch(this.folderPath, {
       persistent: true,
-      depth: 10,
-      ignoreInitial: true,
     });
   }
 
