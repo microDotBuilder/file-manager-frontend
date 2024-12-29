@@ -1,7 +1,8 @@
 // import axios from "axios";
 // import { getTestTypescriptFile } from "./utils/misc.js";
-import { testFile } from "./utils/helpers.js";
+// import { testFile } from "./utils/helpers.js";
 import dotenv from "dotenv";
+import { main } from "./utils/helpers.js";
 // import { test } from "./utils/tree.js";
 dotenv.config();
 
@@ -23,7 +24,7 @@ dotenv.config();
 // console.log("Starting file upload test...");
 
 // testBackend();
-testFile();
+// testFile();
 // const lines = [
 //   "Folder added: /Users/sarvinderjitsingh/Desktop/sarvinder/pm2-process/file-manager-frontend/test-folder/test",
 //   "File added: /Users/sarvinderjitsingh/Desktop/sarvinder/pm2-process/file-manager-frontend/test-folder/test/test.js",
@@ -41,3 +42,7 @@ testFile();
 // console.log("Tree 2");
 // const tree2 = test(line2);
 // console.log(JSON.stringify(tree2, null, 2));
+
+//MERKLE TREE
+
+main();

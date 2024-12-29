@@ -1,123 +1,50 @@
-import { FileManager } from "./file-manager.js";
-import { FolderManager } from "./Folder-manager.js";
-import { test, createTree } from "./tree.js";
-import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 import {
-  LOCAL_MEMORY_TREE_UPDATE_INTERVAL,
   JSON_METADATA_UPDATE_INTERVAL,
+  JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE,
 } from "./consts.js";
+import {
+  loadPm2Ignore,
+  generateMerkleTree,
+} from "./merkel-tree/merkle-tree.js";
+import fs from "fs";
+import { storeOutput } from "./store-output.js";
+import { formatTimeInterval } from "./misc.js";
 
-export async function createFolder(folderPath) {
-  try {
-    const manager = new FolderManager();
-    return manager.getWatcher();
-  } catch (err) {
-    console.log(err);
-  }
-}
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-/**
- * after loading the data,
- * we are going to keep track of the changes in the folder
- * and then update the data array of json with the changes
- * the data that need to be stored in the data array will
- * will need to be trimmed from the file name itself.
- */
+export async function main() {
+  console.log("TESTING MERKLE TREE");
+  const targetPath = path.join(__dirname, "../../", "test-folder");
+  let ignoreFilePath = path.join(__dirname, "../../", "test-folder/.pm2ignore");
 
-export async function testFile() {
-  const manager = new FileManager("test.json");
-  const data = await manager.getData();
-  let instructions = [];
-  let tree = [];
-  // for the initial setup like at the start if there
-  //are already any folders or files in the test folder
+  // Add debug logging
+  console.log("Looking for .pm2ignore at:", ignoreFilePath);
 
-  const startinstructions = createTree();
-  if (startinstructions.length > 0) {
-    tree = test(startinstructions);
-    console.log(JSON.stringify(tree, null, 2));
-  }
-
-  // update the local memory tree every minute
-  // and write the instructions and tree to the output.txt file
-  // for dev phase
-  setInterval(async () => {
-    console.log("RUNNING LOCAL MEMORY TREE UPDATE........");
-    tree = test(instructions);
-    if (fs.existsSync("local-memory-tree.txt")) {
-      // make it async
-      fs.appendFile(
-        "local-memory-tree.txt",
-        JSON.stringify(instructions, null, 2),
-        (err) => {
-          if (err) throw err;
-          console.log("Data appended asynchronously!");
-        }
-      );
-    } else {
-      fs.writeFile(
-        "local-memory-tree.txt",
-        JSON.stringify(instructions, null, 2),
-        (err) => {
-          if (err) throw err;
-          console.log("Data appended asynchronously!");
-        }
-      );
+  if (!fs.existsSync(ignoreFilePath)) {
+    console.log("Warning: .pm2ignore not found at expected path");
+    // Optionally, try to find it in the test-folder
+    const alternatePath = path.join(targetPath, ".pm2ignore");
+    console.log("Trying alternate path:", alternatePath);
+    if (fs.existsSync(alternatePath)) {
+      ignoreFilePath = alternatePath;
     }
-    instructions = []; // empty the instructions array
-  }, LOCAL_MEMORY_TREE_UPDATE_INTERVAL);
+  }
 
+  const ignoreContent = loadPm2Ignore(ignoreFilePath);
+  console.log("Ignore content loaded ");
+  console.log(
+    "will run metadata update every",
+    formatTimeInterval(JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE)
+  );
   setInterval(() => {
-    console.log("RUNNING JSON METADATA UPDATE........");
-    if (fs.existsSync("output.txt")) {
-      // make it async
-      fs.appendFile("output.txt", JSON.stringify(tree, null, 2), (err) => {
-        if (err) throw err;
-        console.log("Data appended asynchronously!");
-      });
-    } else {
-      fs.writeFile("output.txt", JSON.stringify(tree, null, 2), (err) => {
-        if (err) throw err;
-        console.log("Data appended asynchronously!");
-      });
-    }
-  }, JSON_METADATA_UPDATE_INTERVAL);
-  //   console.log(JSON.stringify(manager.data, null, 2));
-  const watcher = await createFolder("test-folder");
-  function shouldExcludePath(path) {
-    return path.includes(".git/");
-  }
+    // Build the Merkle tree
+    const tree = generateMerkleTree(targetPath, ignoreContent, targetPath);
 
-  watcher
-    .on("add", (path) => {
-      if (!shouldExcludePath(path)) {
-        instructions.push(`File added: ${path}`);
-      }
-    })
-    .on("change", (path) => {
-      if (!shouldExcludePath(path)) {
-        instructions.push(`File changed: ${path}`);
-      }
-    })
-    .on("unlink", (path) => {
-      if (!shouldExcludePath(path)) {
-        instructions.push(`File removed: ${path}`);
-      }
-    })
-    .on("addDir", (path) => {
-      if (!shouldExcludePath(path)) {
-        instructions.push(`Folder added: ${path}`);
-      }
-    })
-    .on("unlinkDir", (path) => {
-      if (!shouldExcludePath(path)) {
-        instructions.push(`Folder removed: ${path}`);
-      }
-    })
-    .on("error", (error) => {
-      console.error(`Watcher error: ${error}`);
-    })
-    .on("ready", () => {
-      console.log("Initial scan complete. Ready for changes.");
-    });
+    // Print the result
+    storeOutput(tree, "merkle-tree.txt", "Data appended to MERKLE TREE");
+    console.log("TESTING MERKLE TREE COMPLETED");
+  }, JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE);
 }

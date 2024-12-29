@@ -20,6 +20,18 @@ export const getTestFile = async () => {
   }
 };
 
+export const formatTimeInterval = (ms) => {
+  const seconds = Math.floor(ms / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+
+  if (days > 0) return `${days} ${days === 1 ? "day" : "days"}`;
+  if (hours > 0) return `${hours} ${hours === 1 ? "hour" : "hours"}`;
+  if (minutes > 0) return `${minutes} ${minutes === 1 ? "minute" : "minutes"}`;
+  return `${seconds} ${seconds === 1 ? "second" : "seconds"}`;
+};
+
 export const getTestFileText = async () => {
   const assetPath = path.join(__dirname, "../assets/test.txt");
   const buffer = await fs.readFile(assetPath);

@@ -23,6 +23,8 @@
     "axios": "^1.7.9",
     "child-process": "^1.0.2",
     "chokidar": "^4.0.3",
-    "dotenv": "^16.4.7"
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.7",
+    "ignore": "^7.0.0"
   }
 }
