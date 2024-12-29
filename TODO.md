@@ -7,4 +7,7 @@
 - [x] keep track in local json file of all the files and folders modified
 - [x] keep track in local json file of all the files and folders moved
 - [x] keep track in local json file of all the files and folders renamed
-- [ ] update the json metadata file whent the file or folder is modified
+
+- [x] every minute keep creating the local memory tree
+- [ ] update the json metadata file every 5 minutes
+- [ ] for dev phase, create a file called output.txt and write the instructions ,tree created into that file on every iteration.

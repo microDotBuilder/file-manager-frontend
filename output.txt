@@ -1,0 +1,453 @@
+{
+  "base": "/Users/sarvinderjitsingh/Desktop/sarvinder/pm2-process/file-manager-frontend",
+  "children": [
+    {
+      "type": "Folder",
+      "name": "test-folder",
+      "relativePath": "/test-folder",
+      "children": [
+        {
+          "type": "File",
+          "name": "test",
+          "relativePath": "/test-folder/test",
+          "children": []
+        },
+        {
+          "type": "File",
+          "name": "test2",
+          "relativePath": "/test-folder/test2",
+          "children": [
+            {
+              "type": "Folder",
+              "name": "chokidar",
+              "relativePath": "/test-folder/test2/chokidar",
+              "children": [
+                {
+                  "type": "Folder",
+                  "name": ".git",
+                  "relativePath": "/test-folder/test2/chokidar/.git",
+                  "children": [
+                    {
+                      "type": "File",
+                      "name": "HEAD",
+                      "relativePath": "/test-folder/test2/chokidar/.git/HEAD",
+                      "children": []
+                    },
+                    {
+                      "type": "File",
+                      "name": "config",
+                      "relativePath": "/test-folder/test2/chokidar/.git/config",
+                      "children": []
+                    },
+                    {
+                      "type": "File",
+                      "name": "description",
+                      "relativePath": "/test-folder/test2/chokidar/.git/description",
+                      "children": []
+                    },
+                    {
+                      "type": "Folder",
+                      "name": "hooks",
+                      "relativePath": "/test-folder/test2/chokidar/.git/hooks",
+                      "children": [
+                        {
+                          "type": "File",
+                          "name": "applypatch-msg.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/applypatch-msg.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "commit-msg.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/commit-msg.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "fsmonitor-watchman.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/fsmonitor-watchman.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "post-update.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/post-update.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "pre-applypatch.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/pre-applypatch.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "pre-commit.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/pre-commit.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "pre-merge-commit.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/pre-merge-commit.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "pre-push.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/pre-push.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "pre-rebase.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/pre-rebase.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "pre-receive.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/pre-receive.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "prepare-commit-msg.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/prepare-commit-msg.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "push-to-checkout.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/push-to-checkout.sample",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "update.sample",
+                          "relativePath": "/test-folder/test2/chokidar/.git/hooks/update.sample",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Folder",
+                      "name": "refs",
+                      "relativePath": "/test-folder/test2/chokidar/.git/refs",
+                      "children": [
+                        {
+                          "type": "Folder",
+                          "name": "heads",
+                          "relativePath": "/test-folder/test2/chokidar/.git/refs/heads",
+                          "children": [
+                            {
+                              "type": "File",
+                              "name": "main",
+                              "relativePath": "/test-folder/test2/chokidar/.git/refs/heads/main",
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "Folder",
+                          "name": "tags",
+                          "relativePath": "/test-folder/test2/chokidar/.git/refs/tags",
+                          "children": []
+                        },
+                        {
+                          "type": "Folder",
+                          "name": "remotes",
+                          "relativePath": "/test-folder/test2/chokidar/.git/refs/remotes",
+                          "children": [
+                            {
+                              "type": "Folder",
+                              "name": "origin",
+                              "relativePath": "/test-folder/test2/chokidar/.git/refs/remotes/origin",
+                              "children": [
+                                {
+                                  "type": "File",
+                                  "name": "HEAD",
+                                  "relativePath": "/test-folder/test2/chokidar/.git/refs/remotes/origin/HEAD",
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Folder",
+                      "name": "objects",
+                      "relativePath": "/test-folder/test2/chokidar/.git/objects",
+                      "children": [
+                        {
+                          "type": "Folder",
+                          "name": "info",
+                          "relativePath": "/test-folder/test2/chokidar/.git/objects/info",
+                          "children": []
+                        },
+                        {
+                          "type": "Folder",
+                          "name": "pack",
+                          "relativePath": "/test-folder/test2/chokidar/.git/objects/pack",
+                          "children": [
+                            {
+                              "type": "File",
+                              "name": "tmp_pack_SP9zRo",
+                              "relativePath": "/test-folder/test2/chokidar/.git/objects/pack/tmp_pack_SP9zRo",
+                              "children": []
+                            },
+                            {
+                              "type": "File",
+                              "name": "pack-abf69b4d4a7be7b004aed39fd6ab962f661d5663.idx",
+                              "relativePath": "/test-folder/test2/chokidar/.git/objects/pack/pack-abf69b4d4a7be7b004aed39fd6ab962f661d5663.idx",
+                              "children": []
+                            },
+                            {
+                              "type": "File",
+                              "name": "pack-abf69b4d4a7be7b004aed39fd6ab962f661d5663.keep",
+                              "relativePath": "/test-folder/test2/chokidar/.git/objects/pack/pack-abf69b4d4a7be7b004aed39fd6ab962f661d5663.keep",
+                              "children": []
+                            },
+                            {
+                              "type": "File",
+                              "name": "pack-abf69b4d4a7be7b004aed39fd6ab962f661d5663.pack",
+                              "relativePath": "/test-folder/test2/chokidar/.git/objects/pack/pack-abf69b4d4a7be7b004aed39fd6ab962f661d5663.pack",
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Folder",
+                      "name": "info",
+                      "relativePath": "/test-folder/test2/chokidar/.git/info",
+                      "children": [
+                        {
+                          "type": "File",
+                          "name": "exclude",
+                          "relativePath": "/test-folder/test2/chokidar/.git/info/exclude",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "File",
+                      "name": "index",
+                      "relativePath": "/test-folder/test2/chokidar/.git/index",
+                      "children": []
+                    },
+                    {
+                      "type": "File",
+                      "name": "packed-refs",
+                      "relativePath": "/test-folder/test2/chokidar/.git/packed-refs",
+                      "children": []
+                    },
+                    {
+                      "type": "Folder",
+                      "name": "logs",
+                      "relativePath": "/test-folder/test2/chokidar/.git/logs",
+                      "children": [
+                        {
+                          "type": "File",
+                          "name": "HEAD",
+                          "relativePath": "/test-folder/test2/chokidar/.git/logs/HEAD",
+                          "children": []
+                        },
+                        {
+                          "type": "Folder",
+                          "name": "refs",
+                          "relativePath": "/test-folder/test2/chokidar/.git/logs/refs",
+                          "children": [
+                            {
+                              "type": "Folder",
+                              "name": "heads",
+                              "relativePath": "/test-folder/test2/chokidar/.git/logs/refs/heads",
+                              "children": [
+                                {
+                                  "type": "File",
+                                  "name": "main",
+                                  "relativePath": "/test-folder/test2/chokidar/.git/logs/refs/heads/main",
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "Folder",
+                              "name": "remotes",
+                              "relativePath": "/test-folder/test2/chokidar/.git/logs/refs/remotes",
+                              "children": [
+                                {
+                                  "type": "Folder",
+                                  "name": "origin",
+                                  "relativePath": "/test-folder/test2/chokidar/.git/logs/refs/remotes/origin",
+                                  "children": [
+                                    {
+                                      "type": "File",
+                                      "name": "HEAD",
+                                      "relativePath": "/test-folder/test2/chokidar/.git/logs/refs/remotes/origin/HEAD",
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "File",
+                  "name": ".gitignore",
+                  "relativePath": "/test-folder/test2/chokidar/.gitignore",
+                  "children": []
+                },
+                {
+                  "type": "File",
+                  "name": ".prettierrc.json",
+                  "relativePath": "/test-folder/test2/chokidar/.prettierrc.json",
+                  "children": []
+                },
+                {
+                  "type": "File",
+                  "name": "LICENSE",
+                  "relativePath": "/test-folder/test2/chokidar/LICENSE",
+                  "children": []
+                },
+                {
+                  "type": "File",
+                  "name": "README.md",
+                  "relativePath": "/test-folder/test2/chokidar/README.md",
+                  "children": []
+                },
+                {
+                  "type": "File",
+                  "name": "example.js",
+                  "relativePath": "/test-folder/test2/chokidar/example.js",
+                  "children": []
+                },
+                {
+                  "type": "File",
+                  "name": "package-lock.json",
+                  "relativePath": "/test-folder/test2/chokidar/package-lock.json",
+                  "children": []
+                },
+                {
+                  "type": "File",
+                  "name": "package.json",
+                  "relativePath": "/test-folder/test2/chokidar/package.json",
+                  "children": []
+                },
+                {
+                  "type": "File",
+                  "name": "test.mjs",
+                  "relativePath": "/test-folder/test2/chokidar/test.mjs",
+                  "children": []
+                },
+                {
+                  "type": "File",
+                  "name": "tsconfig.esm.json",
+                  "relativePath": "/test-folder/test2/chokidar/tsconfig.esm.json",
+                  "children": []
+                },
+                {
+                  "type": "File",
+                  "name": "tsconfig.json",
+                  "relativePath": "/test-folder/test2/chokidar/tsconfig.json",
+                  "children": []
+                },
+                {
+                  "type": "Folder",
+                  "name": ".github",
+                  "relativePath": "/test-folder/test2/chokidar/.github",
+                  "children": [
+                    {
+                      "type": "File",
+                      "name": "funding.yml",
+                      "relativePath": "/test-folder/test2/chokidar/.github/funding.yml",
+                      "children": []
+                    },
+                    {
+                      "type": "Folder",
+                      "name": "ISSUE_TEMPLATE",
+                      "relativePath": "/test-folder/test2/chokidar/.github/ISSUE_TEMPLATE",
+                      "children": [
+                        {
+                          "type": "File",
+                          "name": "bug_report.md",
+                          "relativePath": "/test-folder/test2/chokidar/.github/ISSUE_TEMPLATE/bug_report.md",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Folder",
+                      "name": "workflows",
+                      "relativePath": "/test-folder/test2/chokidar/.github/workflows",
+                      "children": [
+                        {
+                          "type": "File",
+                          "name": "lint.yml",
+                          "relativePath": "/test-folder/test2/chokidar/.github/workflows/lint.yml",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "nodejs.yml",
+                          "relativePath": "/test-folder/test2/chokidar/.github/workflows/nodejs.yml",
+                          "children": []
+                        },
+                        {
+                          "type": "File",
+                          "name": "publish-npm.yml",
+                          "relativePath": "/test-folder/test2/chokidar/.github/workflows/publish-npm.yml",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "Folder",
+                  "name": "esm",
+                  "relativePath": "/test-folder/test2/chokidar/esm",
+                  "children": [
+                    {
+                      "type": "File",
+                      "name": "package.json",
+                      "relativePath": "/test-folder/test2/chokidar/esm/package.json",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "Folder",
+                  "name": "src",
+                  "relativePath": "/test-folder/test2/chokidar/src",
+                  "children": [
+                    {
+                      "type": "File",
+                      "name": "handler.ts",
+                      "relativePath": "/test-folder/test2/chokidar/src/handler.ts",
+                      "children": []
+                    },
+                    {
+                      "type": "File",
+                      "name": "index.ts",
+                      "relativePath": "/test-folder/test2/chokidar/src/index.ts",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
