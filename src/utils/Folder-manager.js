@@ -21,7 +21,9 @@ export class FolderManager {
   }
 
   createFolder() {
-    fs.mkdirSync(this.folderPath);
+    if (!fs.existsSync(this.folderPath)) {
+      fs.mkdirSync(this.folderPath);
+    }
   }
   async deleteFolder() {
     // this will delete the folder and all the files inside it recursively
