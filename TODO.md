@@ -1,12 +1,10 @@
 # TODO
 
-- [ ] create a folder on google drive called keep-track
-
-- [ ] go one directory up
-- [ ] create a new directory called keep-track
-  - [ ] what ever gets created in this folder i will keep track of it in my json metadata file
-  - [ ] i want to keep track of the files that are created in this folder
-  - [ ] i want to keep track of the files that are deleted in this folder
-  - [ ] i want to keep track of the files that are modified in this folder
-  - [ ] i want to keep track of the files that are moved in this folder
-  - [ ] i want to keep track of the files that are renamed in this folder
+- [x] create folder in local directory
+- [x] keep track of any folder or file created
+- [x] keep track in local json file of all the files and folders created
+- [x] keep track in local json file of all the files and folders deleted
+- [x] keep track in local json file of all the files and folders modified
+- [x] keep track in local json file of all the files and folders moved
+- [x] keep track in local json file of all the files and folders renamed
+- [ ] update the json metadata file whent the file or folder is modified
