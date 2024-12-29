@@ -1,9 +1,6 @@
 import path from "path";
 import { fileURLToPath } from "url";
-import {
-  JSON_METADATA_UPDATE_INTERVAL,
-  JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE,
-} from "./consts.js";
+import { JSON_METADATA_UPDATE_INTERVAL } from "./consts.js";
 import {
   loadPm2Ignore,
   generateMerkleTree,
@@ -15,7 +12,7 @@ import { formatTimeInterval } from "./misc.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export async function main() {
+export async function FolderWatcher() {
   console.log("TESTING MERKLE TREE");
   const targetPath = path.join(__dirname, "../../", "test-folder");
   let ignoreFilePath = path.join(__dirname, "../../", "test-folder/.pm2ignore");
@@ -37,7 +34,7 @@ export async function main() {
   console.log("Ignore content loaded ");
   console.log(
     "will run metadata update every",
-    formatTimeInterval(JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE)
+    formatTimeInterval(JSON_METADATA_UPDATE_INTERVAL)
   );
   setInterval(() => {
     // Build the Merkle tree
@@ -46,5 +43,5 @@ export async function main() {
     // Print the result
     storeOutput(tree, "merkle-tree.txt", "Data appended to MERKLE TREE");
     console.log("TESTING MERKLE TREE COMPLETED");
-  }, JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE);
+  }, JSON_METADATA_UPDATE_INTERVAL);
 }
