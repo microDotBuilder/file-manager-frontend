@@ -9,6 +9,8 @@
 - [x] keep track in local json file of all the files and folders renamed
 
 - [x] every minute keep creating the local memory tree
-- [ ] update the json metadata file every 5 minutes
-- [ ] for dev phase, create a file called output.txt and write the instructions ,tree created into that file on every iteration.
+- [x] update the json metadata file every 5 minutes
+- [x] for dev phase, create a file called output.txt and write the instructions ,tree created into that file on every iteration.
+- [ ] rather than polling with watcher , can we implement a better way where we
+      run the function after every minute and the it recursively creates a new instruction and then updates the json metadata file
 - [ ] fix the issue with when we are deleting the file or the whole folder and trying to git clone it again the github run something else
