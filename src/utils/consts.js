@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import "../config/init.js";
 
 // 1 hour

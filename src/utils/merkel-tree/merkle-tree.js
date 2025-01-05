@@ -6,11 +6,10 @@
  *  - Uses 'ignore' package to filter out ignored paths
  *  - Builds a content hash for files/folders
  */
-
-import fs from "fs";
-import path from "path";
 import crypto from "crypto";
+import fs from "fs";
 import ignore from "ignore";
+import path from "path";
 
 /**
  * Read .pm2ignore and create an ignore filter.

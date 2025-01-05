@@ -1,0 +1,8 @@
+dist
+node_modules
+test-folder
+file-manager
+build
+.contentlayer
+apps/www/pages/api/registry.json
+**/fixtures

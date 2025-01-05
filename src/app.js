@@ -1,19 +1,20 @@
-import { storeOutput } from "./utils/store-output.js";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-import axios from "axios";
+import {
+  API_SETUP_URI,
+  API_UPDATE_URI,
+  FOLDER_NAME,
+  UPDATE_INTERVAL_MS,
+} from "./utils/consts.js";
+import { diffTrees } from "./utils/diff-generator/diff-generator.js";
 import {
   generateMerkleTree,
   loadPm2Ignore,
 } from "./utils/merkel-tree/merkle-tree.js";
-import { diffTrees } from "./utils/diff-generator/diff-generator.js";
-import {
-  API_SETUP_URI,
-  API_UPDATE_URI,
-  UPDATE_INTERVAL_MS,
-  FOLDER_NAME,
-} from "./utils/consts.js";
+import { storeOutput } from "./utils/store-output.js";
+import axios from "axios";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 let originalTree = null;
@@ -43,7 +44,7 @@ export async function runsetup(targetPath, ignoreContent) {
   await callSetupApi(tree);
 }
 
-export async function getIgnoreContent(ignoreFilePath) {
+export async function getIgnoreContent(ignoreFilePath, targetPath) {
   if (!fs.existsSync(ignoreFilePath)) {
     console.log("Warning: .pm2ignore not found at expected path");
     // Optionally, try to find it in the test-folder

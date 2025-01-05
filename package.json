@@ -4,8 +4,14 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "dev": "node src/index.js",
-    "start": "pm2 start src/index.js --name 'pm2-process'",
+    "dev": " cross-env NODE_ENV=development node src/index.js",
+    "format:write": "prettier --write \"**/*.{js,jsx,mdx}\" --cache",
+    "format:check": "prettier --check \"**/*.{js,jsx,mdx}\" --cache",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "ci": "npm run lint && npm run format:check",
+    "ci:fix": "npm run lint:fix && npm run format:write",
+    "start": "cross-env NODE_ENV=production pm2 start src/index.js --name 'pm2-process'",
     "stop": "pm2 stop pm2-process",
     "restart": "pm2 restart pm2-process",
     "delete": "pm2 delete pm2-process",
@@ -25,5 +31,18 @@
     "crypto": "^1.0.1",
     "dotenv": "^16.4.7",
     "ignore": "^7.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.17.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2"
   }
 }

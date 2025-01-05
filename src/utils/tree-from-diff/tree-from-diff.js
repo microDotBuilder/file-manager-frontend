@@ -53,7 +53,7 @@ function applyDiff(oldTree, diffArray) {
  * @param {ChangeRecord} change
  */
 function applyChange(rootTree, change) {
-  const { changeType, path, newNode, oldNode } = change;
+  const { changeType, path, newNode } = change;
 
   // Split path on '/' -> e.g. "root/nextjs-template/src/app" => ["root","nextjs-template","src","app"]
   const segments = path.split("/").filter(Boolean);
@@ -178,88 +178,6 @@ function updateNode(current, segments, newNode) {
     updateNode(child, rest, newNode);
   }
 }
-
-/**
- * Example usage:
- * - Suppose we have a `diffObj` that matches the new structure you posted
- * - We have an oldTree object. We'll apply diffObj.changes to oldTree
- */
-function exampleUsage() {
-  // 1) Sample oldTree (a minimal example)
-  const oldTree = {
-    type: "folder",
-    name: "root",
-    contentHash: "OLD_ROOT_HASH",
-    children: [
-      {
-        type: "folder",
-        name: "nextjs-template",
-        contentHash: "OLD_HASH_TEMPLATE",
-        children: [
-          {
-            type: "file",
-            name: "package.json",
-            contentHash: "someOldHash",
-            size: 100,
-            lastModified: "2024-01-01T00:00:00.000Z",
-          },
-          // ... etc.
-        ],
-      },
-    ],
-  };
-
-  // 2) The diffObj with your new structure (timestamp, summary, changes array)
-  //    For brevity, we'll show a short partial example. In reality, you'd have the full object.
-  const diffObj = {
-    timestamp: "2024-12-29T22:36:38.590Z",
-    summary: {
-      total: 26,
-      added: 1,
-      removed: 0,
-      modified: 0,
-      unchanged: 25,
-    },
-    changes: [
-      {
-        changeType: "unchanged",
-        path: "root/nextjs-template/package.json",
-        oldNode: {
-          type: "file",
-          name: "package.json",
-          contentHash: "5a2116be54a18afad9829f19c1d21475",
-          size: 1111,
-          lastModified: "2024-12-29T20:47:58.077Z",
-        },
-        newNode: {
-          type: "file",
-          name: "package.json",
-          contentHash: "5a2116be54a18afad9829f19c1d21475",
-          size: 1111,
-          lastModified: "2024-12-29T20:47:58.077Z",
-        },
-      },
-      {
-        changeType: "added",
-        path: "root/nextjs-template/src/app/comp",
-        newNode: {
-          type: "folder",
-          name: "comp",
-          contentHash: "87c78fe235350cd4962a3dc8b295bee7",
-          children: [],
-        },
-      },
-    ],
-  };
-
-  // 3) Apply the changes array to our oldTree
-  const updatedTree = applyDiff(oldTree, diffObj.changes);
-
-  console.log("Updated Tree:", JSON.stringify(updatedTree, null, 2));
-}
-
-// Uncomment to run the example:
-// exampleUsage();
 
 // Export the main functions if you want to import them elsewhere
 export { applyDiff };
