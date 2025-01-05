@@ -1,4 +1,7 @@
-import { JSON_METADATA_UPDATE_INTERVAL } from "./utils/consts.js";
+import {
+  JSON_METADATA_UPDATE_INTERVAL,
+  JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE,
+} from "./utils/consts.js";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -21,7 +24,7 @@ export async function app() {
   runsetup(targetPath, ignoreContent);
   setInterval(async () => {
     await runUpdate(targetPath, ignoreContent);
-  }, JSON_METADATA_UPDATE_INTERVAL);
+  }, JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE);
 }
 
 export async function runsetup(targetPath, ignoreContent) {
