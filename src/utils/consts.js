@@ -1,11 +1,10 @@
 import "../config/init.js";
-// 5 minutes
-// export const LOCAL_MEMORY_TREE_UPDATE_INTERVAL = 300000;
-// 15 minutes later it will be 1 Hour
-export const JSON_METADATA_UPDATE_INTERVAL = 900000;
 
-// 50 seconds
-export const JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE = 50000;
+// 1 hour
+export const JSON_METADATA_UPDATE_INTERVAL = 3600000;
+
+// 1 minute
+export const JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE = 60000;
 
 export const UPDATE_INTERVAL_MS =
   process.env.NODE_ENV === "development"
