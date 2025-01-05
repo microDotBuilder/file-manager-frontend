@@ -1,0 +1,36 @@
+{
+  "file": {
+    "type": "folder",
+    "name": "test-folder",
+    "contentHash": "025b3e3c8b17fab2c53733c427e4cd9df9018662e480018341fe4f8c8ccdc8f8",
+    "children": [
+      {
+        "type": "file",
+        "name": ".pm2ignore",
+        "contentHash": "7b6b5891e1ee1ba8052bf82238044c80fffaf0e5317aea0d9475ce4107ac3a2f",
+        "size": 2096,
+        "lastModified": "2024-12-29T20:52:45.829Z"
+      },
+      {
+        "type": "folder",
+        "name": "test2",
+        "contentHash": "667d50e481a2ced4533b6026a1b518348385a646e3b9741a9831745e26ea1827",
+        "children": [
+          {
+            "type": "file",
+            "name": "s.js",
+            "contentHash": "9e73a9a00cf90a200f4d43b29590a6935ad32b2bbbd0f15678ecef889667a5eb",
+            "size": 91,
+            "lastModified": "2025-01-05T05:05:36.017Z"
+          },
+          {
+            "type": "folder",
+            "name": "t",
+            "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

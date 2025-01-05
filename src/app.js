@@ -1,7 +1,4 @@
-import {
-  JSON_METADATA_UPDATE_INTERVAL,
-  JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE,
-} from "./utils/consts.js";
+import { storeOutput } from "./utils/store-output.js";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -11,20 +8,25 @@ import {
   loadPm2Ignore,
 } from "./utils/merkel-tree/merkle-tree.js";
 import { diffTrees } from "./utils/diff-generator/diff-generator.js";
-import { API_SETUP_URI, API_UPDATE_URI } from "./api/endpoint.js";
+import {
+  API_SETUP_URI,
+  API_UPDATE_URI,
+  UPDATE_INTERVAL_MS,
+  FOLDER_NAME,
+} from "./utils/consts.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 let originalTree = null;
 
 export async function app() {
-  const targetPath = path.join(__dirname, "../", "test-folder");
+  const targetPath = path.join(__dirname, "../", FOLDER_NAME);
   let ignoreFilePath = path.join(targetPath, ".pm2ignore");
   const ignoreContent = await getIgnoreContent(ignoreFilePath);
 
   runsetup(targetPath, ignoreContent);
   setInterval(async () => {
     await runUpdate(targetPath, ignoreContent);
-  }, JSON_METADATA_UPDATE_INTERVAL_MS_TEST_CASE);
+  }, UPDATE_INTERVAL_MS);
 }
 
 export async function runsetup(targetPath, ignoreContent) {
@@ -94,8 +96,10 @@ export async function getDiff(originalTree, tree) {
 
 export async function callSetupApi(tree) {
   const API_URL = API_SETUP_URI;
-
+  console.log("API_URL", API_URL);
   const data = { file: tree };
+  // storeout
+  await storeOutput(data, "setup-tree.json", "Setup tree stored");
   try {
     const response = await axios.post(`${API_URL}`, data);
     console.log(response.data);
@@ -107,11 +111,15 @@ export async function callSetupApi(tree) {
 export async function callUpdateApi(diff) {
   const API_URL = API_UPDATE_URI;
   const data = { diff: diff };
-  console.log("got the diff", JSON.stringify(diff, null, 2));
+  // storeout
+  await storeOutput(data, "updated-tree.json", "Updated diff stored");
+  // console.log("got the diff", JSON.stringify(diff, null, 2));
   try {
     const response = await axios.post(`${API_URL}`, data);
     console.log(response.data);
   } catch (error) {
+    console.warn("Update:warn Error calling update api");
     console.error(error.message);
+    console.warn(error);
   }
 }

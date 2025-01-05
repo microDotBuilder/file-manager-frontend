@@ -132,8 +132,4 @@ function diffTrees(oldNode, newNode, path = "") {
   }
 }
 
-export function diff() {
-  console.log("diff");
-}
-
 export { diffTrees };

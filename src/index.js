@@ -1,6 +1,5 @@
-import dotenv from "dotenv";
+import "./config/init.js";
 import { app } from "./app.js";
 
-dotenv.config();
-
+console.log("BASE_URL", process.env.BASE_URL_DEV);
 app();
