@@ -1,15 +1,20 @@
 import {
   API_SETUP_URI,
   API_UPDATE_URI,
-  API_STRUCTURE_URI,
+  // API_STRUCTURE_URI,
   FOLDER_NAME,
   UPDATE_INTERVAL_MS,
 } from "./utils/consts.js";
-import { diffTrees } from "./utils/diff-generator/diff-generator.js";
+// import { storeOutput } from "./utils/store-output.js";
+// import { diffTrees } from "./utils/diff-generator/diff-generator.js";
+// import {
+//   generateMerkleTree,
+//   loadPm2Ignore,
+// } from "./utils/merkel-tree/merkle-tree.js";
 import {
-  generateMerkleTree,
+  generateMerkleTreeWithContent,
   loadPm2Ignore,
-} from "./utils/merkel-tree/merkle-tree.js";
+} from "./utils/merkel-tree/merkle-tree-v2.js";
 // import { storeOutput } from "./utils/store-output.js";
 import axios from "axios";
 import fs from "fs";
@@ -30,15 +35,12 @@ export async function app() {
   setInterval(async () => {
     await runUpdate(targetPath, ignoreContent);
   }, UPDATE_INTERVAL_MS);
-  // setInterval(async () => {
-  //   await get();
-  // }, 50000);
 }
 
-export async function get() {
-  const response = await axios.get(API_STRUCTURE_URI);
-  console.log(response.data);
-}
+// export async function get() {
+//   const response = await axios.get(API_STRUCTURE_URI);
+//   console.log(response.data);
+// }
 
 export async function runsetup(targetPath, ignoreContent) {
   // setStartup
@@ -46,10 +48,15 @@ export async function runsetup(targetPath, ignoreContent) {
   console.time("setup");
   // we will get the path from the user next
 
-  const tree = await generateMerkleTree(targetPath, ignoreContent, targetPath);
+  const tree = await generateMerkleTreeWithContent(
+    targetPath,
+    ignoreContent,
+    targetPath
+  );
   originalTree = tree;
   console.timeEnd("setup");
   // now we want to send this to our backend
+  // storeOutput(tree, "setup-tree.json", "Setup tree stored");
   //api call
   await callSetupApi(tree);
 }
@@ -69,39 +76,43 @@ export async function getIgnoreContent(ignoreFilePath, targetPath) {
 
 export async function runUpdate(targetPath, ignoreContent) {
   console.time("update");
-  const tree = await generateMerkleTree(targetPath, ignoreContent, targetPath);
+  const tree = await generateMerkleTreeWithContent(
+    targetPath,
+    ignoreContent,
+    targetPath
+  );
   // get the diff
 
   await callUpdateApi(tree);
   console.timeEnd("update");
 }
 
-export async function getDiff(originalTree, tree) {
-  const diff = diffTrees(originalTree, tree, "root");
+// export async function getDiff(originalTree, tree) {
+//   const diff = diffTrees(originalTree, tree, "root");
 
-  console.log("Changes found:");
+//   console.log("Changes found:");
 
-  // Create a structured diff object
-  const diffOutput = {
-    timestamp: new Date().toISOString(),
-    summary: {
-      total: diff.length,
-      added: diff.filter((d) => d.changeType === "added").length,
-      removed: diff.filter((d) => d.changeType === "removed").length,
-      modified: diff.filter((d) => d.changeType === "modified").length,
-      unchanged: diff.filter((d) => d.changeType === "unchanged").length,
-    },
-    changes: diff.map((record) => ({
-      changeType: record.changeType,
-      path: record.path,
-      // Only include relevant node data based on change type
-      ...(record.oldNode && { oldNode: record.oldNode }),
-      ...(record.newNode && { newNode: record.newNode }),
-    })),
-  };
+//   // Create a structured diff object
+//   const diffOutput = {
+//     timestamp: new Date().toISOString(),
+//     summary: {
+//       total: diff.length,
+//       added: diff.filter((d) => d.changeType === "added").length,
+//       removed: diff.filter((d) => d.changeType === "removed").length,
+//       modified: diff.filter((d) => d.changeType === "modified").length,
+//       unchanged: diff.filter((d) => d.changeType === "unchanged").length,
+//     },
+//     changes: diff.map((record) => ({
+//       changeType: record.changeType,
+//       path: record.path,
+//       // Only include relevant node data based on change type
+//       ...(record.oldNode && { oldNode: record.oldNode }),
+//       ...(record.newNode && { newNode: record.newNode }),
+//     })),
+//   };
 
-  return diffOutput;
-}
+//   return diffOutput;
+// }
 
 export async function callSetupApi(tree) {
   const API_URL = API_SETUP_URI;

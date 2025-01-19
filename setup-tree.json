@@ -1,50 +1,66 @@
 {
-  "file": {
-    "type": "folder",
-    "name": "test-folder",
-    "contentHash": "ce9b315e584701fdc0b072c222edc772a6315ed498243e5a5861dbc6f7806cd7",
-    "children": [
-      {
-        "type": "file",
-        "name": ".pm2ignore",
-        "contentHash": "7b6b5891e1ee1ba8052bf82238044c80fffaf0e5317aea0d9475ce4107ac3a2f",
-        "size": 2096,
-        "lastModified": "2024-12-29T20:52:45.829Z"
-      },
-      {
-        "type": "folder",
-        "name": "test2",
-        "contentHash": "667d50e481a2ced4533b6026a1b518348385a646e3b9741a9831745e26ea1827",
-        "children": [
-          {
-            "type": "file",
-            "name": "s.js",
-            "contentHash": "9e73a9a00cf90a200f4d43b29590a6935ad32b2bbbd0f15678ecef889667a5eb",
-            "size": 91,
-            "lastModified": "2025-01-05T05:05:36.017Z"
-          },
-          {
-            "type": "folder",
-            "name": "t",
-            "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-            "children": []
-          }
-        ]
-      },
-      {
-        "type": "folder",
-        "name": "tt",
-        "contentHash": "4abaed98150adbdc7cb90f8a1afd23ec431b71ee5b32c7d68583365cb62905db",
-        "children": [
-          {
-            "type": "file",
-            "name": "ss.js",
-            "contentHash": "6939f43e8ca2a14dc1ddd05a257919b55950c553af57ee3a199ea8a88cffface",
-            "size": 56,
-            "lastModified": "2025-01-05T22:40:22.943Z"
-          }
-        ]
-      }
-    ]
-  }
+  "type": "folder",
+  "name": "test-folder",
+  "contentHash": "e4f0f8cd7ab6f486cf34526eba3fca88cbc08e58babcbd1475aab1c160406599",
+  "children": [
+    {
+      "type": "file",
+      "name": ".pm2ignore",
+      "contentHash": "7b6b5891e1ee1ba8052bf82238044c80fffaf0e5317aea0d9475ce4107ac3a2f",
+      "size": 2096,
+      "lastModified": "2024-12-29T20:52:45.829Z",
+      "content": "IyBMb2dzCgouZ2l0LwoKbG9ncwpfLmxvZwpucG0tZGVidWcubG9nXwp5YXJuLWRlYnVnLmxvZyoKeWFybi1lcnJvci5sb2cqCmxlcm5hLWRlYnVnLmxvZyoKLnBucG0tZGVidWcubG9nKgoKIyBEaWFnbm9zdGljIHJlcG9ydHMgKGh0dHBzOi8vbm9kZWpzLm9yZy9hcGkvcmVwb3J0Lmh0bWwpCgpyZXBvcnQuWzAtOV1fLlswLTldXy5bMC05XV8uWzAtOV1fLmpzb24KCiMgUnVudGltZSBkYXRhCgpwaWRzCl8ucGlkCl8uc2VlZApcKi5waWQubG9jawoKIyBEaXJlY3RvcnkgZm9yIGluc3RydW1lbnRlZCBsaWJzIGdlbmVyYXRlZCBieSBqc2NvdmVyYWdlL0pTQ292ZXIKCmxpYi1jb3YKCiMgQ292ZXJhZ2UgZGlyZWN0b3J5IHVzZWQgYnkgdG9vbHMgbGlrZSBpc3RhbmJ1bAoKY292ZXJhZ2UKXCoubGNvdgoKIyBueWMgdGVzdCBjb3ZlcmFnZQoKLm55Y19vdXRwdXQKCiMgR3J1bnQgaW50ZXJtZWRpYXRlIHN0b3JhZ2UgKGh0dHBzOi8vZ3J1bnRqcy5jb20vY3JlYXRpbmctcGx1Z2lucyNzdG9yaW5nLXRhc2stZmlsZXMpCgouZ3J1bnQKCiMgQm93ZXIgZGVwZW5kZW5jeSBkaXJlY3RvcnkgKGh0dHBzOi8vYm93ZXIuaW8vKQoKYm93ZXJfY29tcG9uZW50cwoKIyBub2RlLXdhZiBjb25maWd1cmF0aW9uCgoubG9jay13c2NyaXB0CgojIENvbXBpbGVkIGJpbmFyeSBhZGRvbnMgKGh0dHBzOi8vbm9kZWpzLm9yZy9hcGkvYWRkb25zLmh0bWwpCgpidWlsZC9SZWxlYXNlCgojIERlcGVuZGVuY3kgZGlyZWN0b3JpZXMKCm5vZGVfbW9kdWxlcy8KanNwbV9wYWNrYWdlcy8KCiMgU25vd3BhY2sgZGVwZW5kZW5jeSBkaXJlY3RvcnkgKGh0dHBzOi8vc25vd3BhY2suZGV2LykKCndlYl9tb2R1bGVzLwoKIyBUeXBlU2NyaXB0IGNhY2hlCgpcKi50c2J1aWxkaW5mbwoKIyBPcHRpb25hbCBucG0gY2FjaGUgZGlyZWN0b3J5CgoubnBtCgojIE9wdGlvbmFsIGVzbGludCBjYWNoZQoKLmVzbGludGNhY2hlCgojIE9wdGlvbmFsIHN0eWxlbGludCBjYWNoZQoKLnN0eWxlbGludGNhY2hlCgojIE1pY3JvYnVuZGxlIGNhY2hlCgoucnB0Ml9jYWNoZS8KLnJ0czJfY2FjaGVfY2pzLwoucnRzMl9jYWNoZV9lcy8KLnJ0czJfY2FjaGVfdW1kLwoKIyBPcHRpb25hbCBSRVBMIGhpc3RvcnkKCi5ub2RlX3JlcGxfaGlzdG9yeQoKIyBPdXRwdXQgb2YgJ25wbSBwYWNrJwoKXCoudGd6CgojIFlhcm4gSW50ZWdyaXR5IGZpbGUKCi55YXJuLWludGVncml0eQoKIyBkb3RlbnYgZW52aXJvbm1lbnQgdmFyaWFibGUgZmlsZXMKCi5lbnYKLmVudi5kZXZlbG9wbWVudC5sb2NhbAouZW52LnRlc3QubG9jYWwKLmVudi5wcm9kdWN0aW9uLmxvY2FsCi5lbnYubG9jYWwKCiMgcGFyY2VsLWJ1bmRsZXIgY2FjaGUgKGh0dHBzOi8vcGFyY2VsanMub3JnLykKCi5jYWNoZQoucGFyY2VsLWNhY2hlCgojIE5leHQuanMgYnVpbGQgb3V0cHV0CgoubmV4dApvdXQKCiMgTnV4dC5qcyBidWlsZCAvIGdlbmVyYXRlIG91dHB1dAoKLm51eHQKZGlzdAoKIyBHYXRzYnkgZmlsZXMKCi5jYWNoZS8KCiMgQ29tbWVudCBpbiB0aGUgcHVibGljIGxpbmUgaW4gaWYgeW91ciBwcm9qZWN0IHVzZXMgR2F0c2J5IGFuZCBub3QgTmV4dC5qcwoKIyBodHRwczovL25leHRqcy5vcmcvYmxvZy9uZXh0LTktMSNwdWJsaWMtZGlyZWN0b3J5LXN1cHBvcnQKCiMgcHVibGljCgojIHZ1ZXByZXNzIGJ1aWxkIG91dHB1dAoKLnZ1ZXByZXNzL2Rpc3QKCiMgdnVlcHJlc3MgdjIueCB0ZW1wIGFuZCBjYWNoZSBkaXJlY3RvcnkKCi50ZW1wCi5jYWNoZQoKIyBEb2N1c2F1cnVzIGNhY2hlIGFuZCBnZW5lcmF0ZWQgZmlsZXMKCi5kb2N1c2F1cnVzCgojIFNlcnZlcmxlc3MgZGlyZWN0b3JpZXMKCi5zZXJ2ZXJsZXNzLwoKIyBGdXNlQm94IGNhY2hlCgouZnVzZWJveC8KCiMgRHluYW1vREIgTG9jYWwgZmlsZXMKCi5keW5hbW9kYi8KCiMgVGVybkpTIHBvcnQgZmlsZQoKLnRlcm4tcG9ydAoKIyBTdG9yZXMgVlNDb2RlIHZlcnNpb25zIHVzZWQgZm9yIHRlc3RpbmcgVlNDb2RlIGV4dGVuc2lvbnMKCi52c2NvZGUtdGVzdAoKIyB5YXJuIHYyCgoueWFybi9jYWNoZQoueWFybi91bnBsdWdnZWQKLnlhcm4vYnVpbGQtc3RhdGUueW1sCi55YXJuL2luc3RhbGwtc3RhdGUuZ3oKLnBucC5cKgo="
+    },
+    {
+      "type": "folder",
+      "name": "test2",
+      "contentHash": "667d50e481a2ced4533b6026a1b518348385a646e3b9741a9831745e26ea1827",
+      "children": [
+        {
+          "type": "file",
+          "name": "s.js",
+          "contentHash": "9e73a9a00cf90a200f4d43b29590a6935ad32b2bbbd0f15678ecef889667a5eb",
+          "size": 91,
+          "lastModified": "2025-01-05T05:05:36.017Z",
+          "content": "ZXhwb3J0IGZ1bmN0aW9uIHMoKSB7CiAgY29uc29sZS5sb2coInMiKTsKfQoKZXhwb3J0IGZ1bmN0aW9uIHMyKCkgewogIGNvbnNvbGUubG9nKCJzMiIpOwp9Cg=="
+        },
+        {
+          "type": "folder",
+          "name": "t",
+          "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "test3",
+      "contentHash": "6879b08dfa8890cd0aea1758ae3fed55d2478fa694a910db24acff4a181a4a13",
+      "children": [
+        {
+          "type": "file",
+          "name": "dile.js",
+          "contentHash": "09db78c17746c835da60f755c15b4cb250ac77cb0cd1c9579bf409287306a397",
+          "size": 70,
+          "lastModified": "2025-01-19T07:29:31.500Z",
+          "content": "ZXhwb3J0IGNvbnN0IGZpbGUgPSAoKSA9PiB7CiAgcmV0dXJuICJmaWxlLmpzIHRpcyBrc2Jha2ZsYmEgamFzICI7Cn07Cg=="
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "testing-diff",
+      "contentHash": "f1cbde5a4c1da9a5b5f74f48749456b855ff1a8687105692f99c72a2113f3a0c",
+      "children": [
+        {
+          "type": "file",
+          "name": "diff.js",
+          "contentHash": "78155e6ced3c93e4c8758353f27aa2d7de8f078ea871dc707b5b10905f16e338",
+          "size": 48,
+          "lastModified": "2025-01-19T07:01:54.792Z",
+          "content": "ZXhwb3J0IGNvbnN0IGRpZmYgPSAoKSA9PiB7CiAgcmV0dXJuICJkaWZmIjsKfTsK"
+        }
+      ]
+    }
+  ]
 }
