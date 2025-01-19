@@ -19,6 +19,7 @@ const BASE_URL =
 export const API_BASE_URI = BASE_URL;
 export const API_UPDATE_URI = `${API_BASE_URI}/api/v1/update`;
 export const API_SETUP_URI = `${API_BASE_URI}/api/v1/setup`;
+export const API_STRUCTURE_URI = `${API_BASE_URI}/api/v1/structure`;
 export const API_UPLOAD_URI = `${API_BASE_URI}/api/v1/upload`;
 export const API_HEALTHCHECK_URI = `${API_BASE_URI}/api/v1/healthcheck`;
 export const FOLDER_NAME =

@@ -1,6 +1,7 @@
 import {
   API_SETUP_URI,
   API_UPDATE_URI,
+  API_STRUCTURE_URI,
   FOLDER_NAME,
   UPDATE_INTERVAL_MS,
 } from "./utils/consts.js";
@@ -9,7 +10,7 @@ import {
   generateMerkleTree,
   loadPm2Ignore,
 } from "./utils/merkel-tree/merkle-tree.js";
-import { storeOutput } from "./utils/store-output.js";
+// import { storeOutput } from "./utils/store-output.js";
 import axios from "axios";
 import fs from "fs";
 import path from "path";
@@ -17,6 +18,7 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+// eslint-disable-next-line no-unused-vars
 let originalTree = null;
 
 export async function app() {
@@ -28,6 +30,14 @@ export async function app() {
   setInterval(async () => {
     await runUpdate(targetPath, ignoreContent);
   }, UPDATE_INTERVAL_MS);
+  // setInterval(async () => {
+  //   await get();
+  // }, 50000);
+}
+
+export async function get() {
+  const response = await axios.get(API_STRUCTURE_URI);
+  console.log(response.data);
 }
 
 export async function runsetup(targetPath, ignoreContent) {
@@ -61,10 +71,8 @@ export async function runUpdate(targetPath, ignoreContent) {
   console.time("update");
   const tree = await generateMerkleTree(targetPath, ignoreContent, targetPath);
   // get the diff
-  const diff = await getDiff(originalTree, tree);
-  //   console.log(JSON.stringify(diff, null, 2));
-  originalTree = tree;
-  await callUpdateApi(diff);
+
+  await callUpdateApi(tree);
   console.timeEnd("update");
 }
 
@@ -100,7 +108,7 @@ export async function callSetupApi(tree) {
   console.log("API_URL", API_URL);
   const data = { file: tree };
   // storeout
-  await storeOutput(data, "setup-tree.json", "Setup tree stored");
+  // await storeOutput(data, "setup-tree.json", "Setup tree stored");
   try {
     const response = await axios.post(`${API_URL}`, data);
     console.log(response.data);
@@ -109,11 +117,11 @@ export async function callSetupApi(tree) {
   }
 }
 
-export async function callUpdateApi(diff) {
+export async function callUpdateApi(tree) {
   const API_URL = API_UPDATE_URI;
-  const data = { diff: diff };
+  const data = { file: tree };
   // storeout
-  await storeOutput(data, "updated-tree.json", "Updated diff stored");
+  // await storeOutput(data, "updated-tree.json", "Updated diff stored");
   // console.log("got the diff", JSON.stringify(diff, null, 2));
   try {
     const response = await axios.post(`${API_URL}`, data);

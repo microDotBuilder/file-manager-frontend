@@ -1,0 +1,50 @@
+{
+  "file": {
+    "type": "folder",
+    "name": "test-folder",
+    "contentHash": "ce9b315e584701fdc0b072c222edc772a6315ed498243e5a5861dbc6f7806cd7",
+    "children": [
+      {
+        "type": "file",
+        "name": ".pm2ignore",
+        "contentHash": "7b6b5891e1ee1ba8052bf82238044c80fffaf0e5317aea0d9475ce4107ac3a2f",
+        "size": 2096,
+        "lastModified": "2024-12-29T20:52:45.829Z"
+      },
+      {
+        "type": "folder",
+        "name": "test2",
+        "contentHash": "667d50e481a2ced4533b6026a1b518348385a646e3b9741a9831745e26ea1827",
+        "children": [
+          {
+            "type": "file",
+            "name": "s.js",
+            "contentHash": "9e73a9a00cf90a200f4d43b29590a6935ad32b2bbbd0f15678ecef889667a5eb",
+            "size": 91,
+            "lastModified": "2025-01-05T05:05:36.017Z"
+          },
+          {
+            "type": "folder",
+            "name": "t",
+            "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "children": []
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "name": "tt",
+        "contentHash": "4abaed98150adbdc7cb90f8a1afd23ec431b71ee5b32c7d68583365cb62905db",
+        "children": [
+          {
+            "type": "file",
+            "name": "ss.js",
+            "contentHash": "6939f43e8ca2a14dc1ddd05a257919b55950c553af57ee3a199ea8a88cffface",
+            "size": 56,
+            "lastModified": "2025-01-05T22:40:22.943Z"
+          }
+        ]
+      }
+    ]
+  }
+}
